@@ -45,8 +45,8 @@ public class SignChooserActivity extends AppCompatActivity {
         symbolX.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                symbolO.setBackgroundResource(R.color.goodColor);
-                view.setBackgroundResource(R.color.greyedOut);
+                ((TextView) view).setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                symbolO.setTextColor(getResources().getColor(R.color.greyedOut));
                 next.setEnabled(true);
                 next.setBackgroundResource(R.color.colorAccent);
                 selected = "X";
@@ -56,8 +56,8 @@ public class SignChooserActivity extends AppCompatActivity {
         symbolO.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                symbolX.setBackgroundResource(R.color.goodColor);
-                view.setBackgroundResource(R.color.greyedOut);
+                ((TextView) view).setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                symbolX.setTextColor(getResources().getColor(R.color.greyedOut));
                 next.setEnabled(true);
                 next.setBackgroundResource(R.color.colorAccent);
                 selected = "O";

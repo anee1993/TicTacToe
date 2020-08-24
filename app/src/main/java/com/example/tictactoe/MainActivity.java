@@ -1,15 +1,14 @@
 package com.example.tictactoe;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.GridLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -61,12 +60,11 @@ public class MainActivity extends AppCompatActivity {
     static String playerSymbol;
     static String botSymbol;
     int clicks = 1;
-    Map<String,String> winCombinations = new HashMap<>();
-    Map<String,TextView> viewMap = new HashMap<>();
+    Map<String, String> winCombinations = new HashMap<>();
+    Map<String, TextView> viewMap = new HashMap<>();
     List<TextView> views = new ArrayList<>();
     Bundle bundle;
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,14 +74,13 @@ public class MainActivity extends AppCompatActivity {
         setUpWinCombinations();
         bundle = getIntent().getExtras();
 
-        if(null != bundle) {
+        if (null != bundle) {
             playerSymbol = bundle.getString("playerSymbol");
         }
 
-        if(playerSymbol.equalsIgnoreCase("X")) {
+        if (Objects.requireNonNull(playerSymbol).equalsIgnoreCase("X")) {
             botSymbol = "O";
-        }
-        else {
+        } else {
             botSymbol = "X";
         }
 
@@ -172,25 +169,24 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View view) {
             TextView viewID = ((TextView) view);
             winner.setVisibility(View.INVISIBLE);
-            if(viewID.getText() == ""){
-                if(clicks % 2 == 0){
+            if (viewID.getText() == "") {
+                if (clicks % 2 == 0) {
                     viewID.setText(botSymbol);
                     viewID.setTextColor(getResources().getColor(R.color.colorAccent));
-                }
-                else {
+                } else {
                     viewID.setText(playerSymbol);
                     viewID.setTextColor(getResources().getColor(R.color.X_color));
                 }
 
                 String idName = view.getResources().getResourceName(view.getId()).substring(25);
-                viewMap.put(idName,viewID);
+                viewMap.put(idName, viewID);
                 String combinations = winCombinations.get(idName);
-                String[] allCombinations = combinations.split("@");
-                for(int i=0;i<allCombinations.length;i++){
-                    String[] subParts = allCombinations[i].split(",");
+                String[] allCombinations = Objects.requireNonNull(combinations).split("@");
+                for (String allCombination : allCombinations) {
+                    String[] subParts = allCombination.split(",");
                     TextView view1 = viewMap.get(subParts[0]);
                     TextView view2 = viewMap.get(subParts[1]);
-                    if(null != view1 && null != view2) {
+                    if (null != view1 && null != view2) {
                         if (view1.getText().toString().equalsIgnoreCase(viewID.getText().toString()) && view2.getText().toString().equalsIgnoreCase(viewID.getText().toString())) {
                             viewID.setTextColor(getResources().getColor(R.color.colorPrimary));
                             view1.setTextColor(getResources().getColor(R.color.colorPrimary));
@@ -209,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 clicks += 1;
                 System.out.println(clicks);
-                if(clicks == 10){
+                if (clicks == 10) {
                     winner.setText("Oops! That's a draw...");
                     winner.setBackgroundResource(R.color.colorAccent);
                     winner.setVisibility(View.VISIBLE);
@@ -220,14 +216,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setUpWinCombinations() {
-        winCombinations.put("topFirst","topSecond,topThird@secondLeft,thirdLeft@secondMiddle,thirdRight");
-        winCombinations.put("topSecond","topFirst,topThird@secondMiddle,ThirdMiddle");
-        winCombinations.put("topThird","topSecond,topFirst@secondMiddle,thirdLeft@secondRight,thirdRight");
-        winCombinations.put("secondLeft","topFirst,thirdLeft@secondMiddle,secondRight");
-        winCombinations.put("secondMiddle","topSecond,thirdMiddle@secondLeft,secondRight@topFirst,thirdRight");
-        winCombinations.put("secondRight","topThird,thirdRight@secondLeft,secondMiddle");
-        winCombinations.put("thirdLeft","topFirst,secondLeft@secondMiddle,topThird@thirdMiddle,thirdRight");
-        winCombinations.put("thirdMiddle","thirdLeft,thirdRight@secondMiddle,topSecond");
-        winCombinations.put("thirdRight","topFirst,secondMiddle@secondRight,topThird@thirdLeft,thirdMiddle");
+        winCombinations.put("topFirst", "topSecond,topThird@secondLeft,thirdLeft@secondMiddle,thirdRight");
+        winCombinations.put("topSecond", "topFirst,topThird@secondMiddle,ThirdMiddle");
+        winCombinations.put("topThird", "topSecond,topFirst@secondMiddle,thirdLeft@secondRight,thirdRight");
+        winCombinations.put("secondLeft", "topFirst,thirdLeft@secondMiddle,secondRight");
+        winCombinations.put("secondMiddle", "topSecond,thirdMiddle@secondLeft,secondRight@topFirst,thirdRight");
+        winCombinations.put("secondRight", "topThird,thirdRight@secondLeft,secondMiddle");
+        winCombinations.put("thirdLeft", "topFirst,secondLeft@secondMiddle,topThird@thirdMiddle,thirdRight");
+        winCombinations.put("thirdMiddle", "thirdLeft,thirdRight@secondMiddle,topSecond");
+        winCombinations.put("thirdRight", "topFirst,secondMiddle@secondRight,topThird@thirdLeft,thirdMiddle");
     }
 }
