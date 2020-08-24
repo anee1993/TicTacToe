@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TicTacToe</string>
+    <string name="select_your_symbol">Select your Symbol</string>
+    <string name="x">X</string>
+    <string name="o">O</string>
+    <string name="next">Next</string>
+    <string name="e">E</string>
+    <string name="we_have_a_winner">We have a winner!</string>
+    <string name="try_again">Try again?</string>
+</resources>

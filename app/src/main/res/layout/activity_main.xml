@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/goodColor">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/winner"
+        android:textSize="30sp"
+        android:background="@color/colorAccent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:visibility="invisible"
+        android:text="@string/we_have_a_winner"/>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/grid"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:rowCount="3"
+        android:columnCount="3"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/topFirst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp"
+            android:padding="8dp"
+            android:hint="@string/e"/>
+
+        <TextView
+            android:id="@+id/topSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp"
+            android:padding="8dp"
+            android:hint="@string/e"/>
+
+        <TextView
+            android:id="@+id/topThird"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textSize="80sp"
+            android:hint="@string/e"/>
+
+        <TextView
+            android:id="@+id/secondLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textSize="80sp"
+            android:hint="@string/e"/>
+
+        <TextView
+            android:id="@+id/secondMiddle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp"
+            android:padding="8dp"
+            android:hint="@string/e"/>
+
+        <TextView
+            android:id="@+id/secondRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textSize="80sp"
+            android:hint="@string/e"/>
+
+        <TextView
+            android:id="@+id/thirdLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textSize="80sp"
+            android:hint="@string/e"/>
+
+        <TextView
+            android:id="@+id/thirdMiddle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textSize="80sp"
+            android:hint="@string/e"/>
+        <TextView
+            android:id="@+id/thirdRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textSize="80sp"
+            android:hint="@string/e"/>
+    </GridLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tryAgain"
+        android:textColor="@color/pure_white"
+        android:textSize="30sp"
+        android:padding="8dp"
+        android:background="@color/colorAccent"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/grid"
+        android:layout_marginTop="24dp"
+        android:visibility="invisible"
+        android:text="@string/try_again"/>
+</RelativeLayout>
