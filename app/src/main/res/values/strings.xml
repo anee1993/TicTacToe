@@ -4,7 +4,8 @@
     <string name="x">X</string>
     <string name="o">O</string>
     <string name="next">Next</string>
-    <string name="e">E</string>
+    <string name="e">F</string>
     <string name="we_have_a_winner">We have a winner!</string>
-    <string name="try_again">Try again?</string>
+    <string name="help">F represents an empty space. Tap on them to start playing!</string>
+    <string name="try_again">Play Again?</string>
 </resources>

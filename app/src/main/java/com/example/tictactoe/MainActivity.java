@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
     List<TextView> views = new ArrayList<>();
     Bundle bundle;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -170,12 +171,15 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             TextView viewID = ((TextView) view);
+            winner.setVisibility(View.INVISIBLE);
             if(viewID.getText() == ""){
                 if(clicks % 2 == 0){
                     viewID.setText(botSymbol);
+                    viewID.setTextColor(getResources().getColor(R.color.colorAccent));
                 }
                 else {
                     viewID.setText(playerSymbol);
+                    viewID.setTextColor(getResources().getColor(R.color.X_color));
                 }
 
                 String idName = view.getResources().getResourceName(view.getId()).substring(25);
@@ -188,9 +192,9 @@ public class MainActivity extends AppCompatActivity {
                     TextView view2 = viewMap.get(subParts[1]);
                     if(null != view1 && null != view2) {
                         if (view1.getText().toString().equalsIgnoreCase(viewID.getText().toString()) && view2.getText().toString().equalsIgnoreCase(viewID.getText().toString())) {
-                            viewID.setBackgroundResource(R.color.pure_white);
-                            view1.setBackgroundResource(R.color.pure_white);
-                            view2.setBackgroundResource(R.color.pure_white);
+                            viewID.setTextColor(getResources().getColor(R.color.colorPrimary));
+                            view1.setTextColor(getResources().getColor(R.color.colorPrimary));
+                            view2.setTextColor(getResources().getColor(R.color.colorPrimary));
 
                             winner.setText(R.string.we_have_a_winner);
                             winner.setVisibility(View.VISIBLE);
